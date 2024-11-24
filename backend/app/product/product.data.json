@@ -1,0 +1,35 @@
+
+{
+    "designer":"Louboutin",
+    "name": "Men's Alpinosol Leather Chelsea Boots",
+    "category": "Shoes",
+    "images": [
+      "nm_4796543_100244_m.webp",
+      "nm_4796543_100244_c.webp",
+      "nm_4796543_100244_h.webp"
+    ],
+    "price": 1295,
+    "discount": 10,
+    "rating": 5,
+    "colors": ["black", "black"],
+    "sizes": ["small", "medium", "large", "x-large", "xx-large"]
+  }
+
+
+
+  {
+    "designer":"",
+    "name": "",
+    "category": "",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "price": ,
+    "discount": 10,
+    "rating": 4,
+    "colors": [],
+    "sizes": []
+  }

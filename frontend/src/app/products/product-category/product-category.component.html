@@ -1,0 +1,9 @@
+<div class="row py-3 px-2" style="background: #f5f6f8">
+  <div
+    *ngFor="let category of categoryData"
+    class="col d-flex flex-column col-12 col-md-4 col-lg-2"
+  >
+    <img src="assets/img/{{ category.img }}" />
+    <h6 class="d-flex justify-content-center mt-3">{{ category.category }}</h6>
+  </div>
+</div>

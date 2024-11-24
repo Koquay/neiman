@@ -1,0 +1,36 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item">
+      <a
+        class="page-link"
+        style="font-size: 18px"
+        (click)="getAdjacentPage('prev')"
+        aria-label="Previous"
+      >
+        <span aria-hidden="true" style="font-size: 18px">«</span>
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages">
+      <a
+        class="page-link"
+        style="font-size: 18px"
+        (click)="getPage(page)"
+        [ngClass]="{
+          'pagination-background': page === pageNo
+        }"
+      >
+        {{ page }}
+      </a>
+    </li>
+    <li class="page-item">
+      <a
+        class="page-link"
+        style="font-size: 18px"
+        (click)="getAdjacentPage('next')"
+        aria-label="Next"
+      >
+        <span aria-hidden="true" style="font-size: 18px">»</span>
+      </a>
+    </li>
+  </ul>
+</nav>

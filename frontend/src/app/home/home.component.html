@@ -1,0 +1,33 @@
+<div class="container">
+  <section>
+    <img
+      class="img-fluid"
+      src="assets/img/{{ heroImg }}"
+      [routerLink]="['/products']"
+    />
+  </section>
+  <section class="mt-5">
+    <h2 class="d-lg-flex justify-content-lg-center">{{ galleryHeading }}</h2>
+    <div class="row mt-5">
+      <div *ngFor="let obj of gallery" class="col col-6 col-md-4 mb-5">
+        <div class="card border-0">
+          <img
+            class="img-fluid card-img-top w-100 d-block"
+            src="assets/img/{{ obj.img }}"
+          />
+          <div class="card-body text-center">
+            <h6 class="text-muted card-subtitle mb-2">
+              {{ obj.name }}
+            </h6>
+            <p class="text-center card-text">
+              {{ obj.description }}
+            </p>
+            <a class="text-center card-link" style="color: initial">{{
+              obj.prompt
+            }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

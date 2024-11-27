@@ -3,12 +3,33 @@
     *ngFor="let product of products"
     class="col d-flex flex-column col-12 col-md-4 col-lg-3 mb-4 gallery-img-col"
   >
-    <img class="gallery-img" src="assets/img/{{ product.images[0] }}" />
-    <img class="gallery-img-2" src="assets/img/{{ product.images[1] }}" />
-    <h5 class="mb-0" style="font-size: 15px; font-weight: bolder">
+    <img
+      class="gallery-img"
+      src="assets/img/{{ product.images[0] }}"
+      [routerLink]="['/selected-product']"
+      (click)="setSelectedProduct(product)"
+    />
+    <img
+      class="gallery-img-2"
+      src="assets/img/{{ product.images[1] }}"
+      [routerLink]="['/selected-product']"
+      (click)="setSelectedProduct(product)"
+    />
+    <h5
+      class="mb-0"
+      style="font-size: 15px; font-weight: bolder; cursor: pointer"
+      [routerLink]="['/selected-product']"
+      (click)="setSelectedProduct(product)"
+    >
       {{ product.designer }}
     </h5>
-    <p class="mb-0">{{ product.name }}</p>
+    <p
+      class="mb-0"
+      [routerLink]="['/selected-product']"
+      (click)="setSelectedProduct(product)"
+    >
+      {{ product.name }}
+    </p>
     <p class="mb-0">{{ product.price | currency }}</p>
   </div>
 </div>

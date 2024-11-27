@@ -4,12 +4,15 @@ import { ProductGalleryService } from './product-gallery.service';
 import { ProductModel } from '../product.model';
 import { CommonModule } from '@angular/common';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
+import { RouterModule } from '@angular/router';
+import { SelectedProductService } from '../selected-product/selected-product.service';
 
 @Component({
   selector: 'app-product-gallery',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     PaginationComponent
   ],
   templateUrl: './product-gallery.component.html',
@@ -18,6 +21,7 @@ import { PaginationComponent } from '../../shared/components/pagination/paginati
 export class ProductGalleryComponent {
   private productSidebarService = inject(ProductSidebarService);
   private productGalleryService = inject(ProductGalleryService);
+  private selectedProductService = inject(SelectedProductService);
   public productSidebarData = this.productSidebarService.productSidebarSignal();
   public products:ProductModel[] = [];
   public productCount = 0;
@@ -42,5 +46,9 @@ export class ProductGalleryComponent {
       this.products = productData.products;
       this.productCount = productData.productCount;
     })
+  }
+
+  public setSelectedProduct = (product:ProductModel) => {
+    this.selectedProductService.setSelectedProduct(product);
   }
 }

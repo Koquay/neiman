@@ -9,6 +9,9 @@ export class ProductModel {
     category: string = '';
     attributes: [{label:string, attribute:string}] = [{label: '', 'attribute': ''}];
     colors: string[] = [];
+    color: string = '';
+    size:string = '';
+    quantity = 1;
 }
 
 

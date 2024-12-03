@@ -9,7 +9,7 @@ export class ProductSidebarService {
 
   public updateSidebarData = (productSidebarData: ProductSidebarData) => {
     this.productSidebarSignal.set({... productSidebarData} );
-    console.dir('ProductSidebarService.productSidebarSignal', this.productSidebarSignal())
+    //console.log('ProductSidebarService.productSidebarSignal', this.productSidebarSignal())
   };
 }
 

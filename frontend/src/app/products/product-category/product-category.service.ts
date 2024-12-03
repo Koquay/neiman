@@ -13,7 +13,7 @@ export class ProductCategoryService {
   });
 
   constructor() {
-    console.dir('productCategorySignal', this.productCategorySignal())
+    //console.log('productCategorySignal', this.productCategorySignal())
   }
 }
 

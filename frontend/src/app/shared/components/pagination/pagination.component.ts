@@ -16,7 +16,7 @@ export class PaginationComponent {
   @Output() pageChangeEvent = new EventEmitter<number>();
 
   @Input() set productCount(productCount: number) {
-    console.log('this.productCount', productCount)
+    //console.log('this.productCount', productCount)
 
     this.numberOfPages = Math.ceil(
       productCount / this.pageSize

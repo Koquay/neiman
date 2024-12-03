@@ -32,13 +32,13 @@ export class ProductGalleryService {
       })
       .pipe(
         tap((productData) => {
-          console.dir('productData', productData);
+          //console.log('productData', productData);
           this.productSignal.set({ ...productData})
-          console.dir('ProductService.productSignal', this.productSignal())
+          //console.log('ProductService.productSignal', this.productSignal())
           // this.productCount = this.productSignal().productCount;
         }),
         catchError((error) => {
-          console.dir('error', error);
+          //console.log('error', error);
           // this.toastr.error('Problem getting products', 'Get Products')
           throw error;
         })
@@ -46,7 +46,7 @@ export class ProductGalleryService {
   };
 
   private getSelectedFilters(productSidebarData: ProductSidebarData) {
-    console.dir('ProductService.getSelectedFilters', productSidebarData);
+    //console.log('ProductService.getSelectedFilters', productSidebarData);
 
     const category = productSidebarData.categories.currentCategory;
 
@@ -54,7 +54,7 @@ export class ProductGalleryService {
       (range) => range.checked
     );
 
-    console.dir('ProductGalleryService.priceFilters', priceFilters);
+    //console.log('ProductGalleryService.priceFilters', priceFilters);
 
     const priceRanges = [];
     for (let priceRange of priceFilters) {
@@ -64,7 +64,7 @@ export class ProductGalleryService {
     const ratingFilters = productSidebarData.ratings.ratings.filter(
       (filter:any) => filter.checked
     );
-    console.dir('ProductService.ratingFilters', ratingFilters);
+    //console.log('ProductService.ratingFilters', ratingFilters);
 
     const ratings:number[] = [];
 
@@ -80,7 +80,7 @@ export class ProductGalleryService {
       pageSize: productSidebarData.pageSize,
     };
 
-    console.dir('filters', filters);
+    //console.log('filters', filters);
     return JSON.stringify(filters);
   }
 }

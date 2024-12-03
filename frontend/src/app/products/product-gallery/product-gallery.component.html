@@ -6,28 +6,21 @@
     <img
       class="gallery-img"
       src="assets/img/{{ product.images[0] }}"
-      [routerLink]="['/selected-product']"
-      (click)="setSelectedProduct(product)"
+      (click)="gotoSelectedProduct(product)"
     />
     <img
       class="gallery-img-2"
       src="assets/img/{{ product.images[1] }}"
-      [routerLink]="['/selected-product']"
-      (click)="setSelectedProduct(product)"
+      (click)="gotoSelectedProduct(product)"
     />
     <h5
       class="mb-0"
       style="font-size: 15px; font-weight: bolder; cursor: pointer"
-      [routerLink]="['/selected-product']"
-      (click)="setSelectedProduct(product)"
+      (click)="gotoSelectedProduct(product)"
     >
       {{ product.designer }}
     </h5>
-    <p
-      class="mb-0"
-      [routerLink]="['/selected-product']"
-      (click)="setSelectedProduct(product)"
-    >
+    <p class="mb-0" (click)="gotoSelectedProduct(product)">
       {{ product.name }}
     </p>
     <p class="mb-0">{{ product.price | currency }}</p>

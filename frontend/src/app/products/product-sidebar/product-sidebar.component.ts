@@ -25,7 +25,7 @@ export class ProductSidebarComponent {
   public setCategory = (category:string) => {
     this.productSidebarData.categories.currentCategory = category;
     this.categoryName = category;
-    console.dir('ProductSidebarComponent.productSidebarData', this.productSidebarData)
+    //console.log('ProductSidebarComponent.productSidebarData', this.productSidebarData)
     this.updateSidebarData();
   }
 

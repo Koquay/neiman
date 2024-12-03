@@ -8,8 +8,14 @@ a {
   cursor: pointer;
 }
   
-.addToCartBtn {
+.appBtn {
+  background-color: black !important;
+
   &:hover {
     opacity:80%;
   }
+}
+
+.alert {
+  color: red !important;
 }

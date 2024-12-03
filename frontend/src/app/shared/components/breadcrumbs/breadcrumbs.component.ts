@@ -26,7 +26,7 @@ export class BreadcrumbsComponent {
     this.productName = this.selectedProduct?.name;
     this.productId = this.selectedProduct?._id;
     
-    console.dir('Breadcrumb.selectedProduct', this.selectedProduct)
+    //console.log('Breadcrumb.selectedProduct', this.selectedProduct)
   });
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class BreadcrumbsComponent {
         let url = this.router.url;                
 
         let label = url.substring(1); // remove leading '/' from url
-        console.dir('url', url);        
+        //console.log('url', url);        
 
         if (label.includes('/')) {
           let index = label.indexOf('/');
@@ -56,12 +56,15 @@ export class BreadcrumbsComponent {
 
         let breadcrumb = { label, url };
 
-        this.breadcrumbs = this.breadcrumbs?.filter(
-          (breadcrumb:{label:string, url:string}) => breadcrumb.url !== url
-        );
+        // if(!url.startsWith('/selected-product')) { 
+          this.breadcrumbs = this.breadcrumbs?.filter(
+            (breadcrumb:{label:string, url:string}) => breadcrumb.url !== url
+          );
+        // }
+        
         this.breadcrumbs?.push(breadcrumb);
 
-        console.dir('breadcrumbs', this.breadcrumbs);
+        console.log('breadcrumbs', this.breadcrumbs);
 
         //if user refreshes the page, get the breadcrumbs from localStorage
         if (this.breadcrumbs.length === 1) {
@@ -71,9 +74,11 @@ export class BreadcrumbsComponent {
           }
         }
 
-        let state = JSON.parse(localStorage.getItem('neiman') as string) || {};
-        state.breadcrumbs = this.breadcrumbs;
-        localStorage.setItem('neiman', JSON.stringify(state));
+        // let state = JSON.parse(localStorage.getItem('neiman') as string) || {};
+        // state.breadcrumbs = this.breadcrumbs;
+        // localStorage.setItem('neiman', JSON.stringify(state));
+
+        this.saveBreadcrumbsToLocalstorage();
       }
     });
   };
@@ -90,7 +95,14 @@ export class BreadcrumbsComponent {
   public clearBreadcrumbs = () => {
     this.breadcrumbs = [this.breadcrumbs[this.breadcrumbs.length - 1]]
     let breadcrumb = {label:'Home', url:'/home' }
-    this.breadcrumbs.unshift(breadcrumb)
+    this.breadcrumbs.unshift(breadcrumb);
+    this.saveBreadcrumbsToLocalstorage();
+  }
+
+  private saveBreadcrumbsToLocalstorage = () => {
+    let state = JSON.parse(localStorage.getItem('neiman') as string) || {};
+    state.breadcrumbs = this.breadcrumbs;
+    localStorage.setItem('neiman', JSON.stringify(state));
   }
 
 }

@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../../authentication/authentication.se
 import { AuthenticationModel } from '../../../authentication/authentication.model';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../cart/cart.service';
-import { ProductSearchComponent } from "../../../product/product-search/product-search.component";
+import { ProductSearchComponent } from "../../../products/product-search/product-search.component";
 
 @Component({
   selector: 'app-header',

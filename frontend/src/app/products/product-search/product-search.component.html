@@ -1,6 +1,12 @@
 <div class="input-group" style="width: 501.2px">
-  <input class="form-control" type="text" />
-  <button class="btn" type="button">
+  <input
+    class="form-control"
+    style="position: relative"
+    type="text"
+    [(ngModel)]="searchField"
+    placeholder="Search products..."
+  />
+  <button class="btn" type="button" [ngClass]="{ 'd-none': !searchField }">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
@@ -15,7 +21,7 @@
       ></path>
     </svg>
   </button>
-  <button class="btn btn-light" type="button">
+  <button class="btn btn-light" type="button" (click)="search()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
@@ -31,3 +37,26 @@
     </svg>
   </button>
 </div>
+
+<ol
+  class="list-group d-block"
+  style="
+    position: absolute;
+    top: 10;
+    left: 100;
+    z-index: 10;
+    height: 500px;
+    overflow-y: scroll;
+  "
+  *ngIf="showSearchResult"
+>
+  <li
+    key="{item}"
+    (click)="clearSearchbox(); gotoSelectedProduct(product)"
+    class="py-1 px-2 list-group-item list-group-item-warning"
+    style="border: 1px solid"
+    *ngFor="let product of searchResults"
+  >
+    <small style="cursor: pointer">{{ product.name }}</small>
+  </li>
+</ol>
